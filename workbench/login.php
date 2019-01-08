@@ -3,6 +3,7 @@ require_once "shared.php";
 require_once "session.php";
 require_once "controllers/LoginController.php";
 
+
 $c = new LoginController();
 if (isset($_POST['uiLogin'])
     || !empty($_REQUEST["pw"])
@@ -112,6 +113,9 @@ require_once "header.php";
             <p>
                 <strong>Genpact Workbench is free to use, but is not an official salesforce.com product.</strong>
                 Deployed for internal use only.
+            </p>
+            <p>
+                Whitelist this IP <?php $_SERVER['SERVER_ADDR'];?>
             </p>
 
             <p>
