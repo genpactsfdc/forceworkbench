@@ -111,11 +111,13 @@ require_once "header.php";
             <?php } ?>
 
             <p>
-                <strong>Genpact Workbench is free to use, but is not an official salesforce.com product.</strong>
-                Deployed for internal use only.
+                <strong>Genpact Workbench is free to use, but is deployed for internal Genpact employees only.
             </p>
             <p>
-                Current whitelist IP <?php echo $_SERVER['SERVER_ADDR'];?>
+                Whitelist following IP in your profile before logging in:
+            </p>
+            <p>
+                Server IP : <?php echo $_SERVER['SERVER_ADDR'];?>
             </p>
 
             <p>
