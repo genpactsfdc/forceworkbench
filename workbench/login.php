@@ -111,7 +111,7 @@ require_once "header.php";
 
             <p>
                 <strong>Genpact Workbench is free to use, but is not an official salesforce.com product.</strong>
-                Deployed by amit.bhardwaj@genpact.com
+                Deployed for internal use only.
             </p>
 
             <p>
