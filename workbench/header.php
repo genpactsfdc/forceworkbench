@@ -1,22 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <?php
-        if (getenv('GA_TRACKING_ID') !== false) {
-            print "<script async src=\"https://www.googletagmanager.com/gtag/js?id=". getenv('GA_TRACKING_ID') . "\"></script>";
-            print "<script>";
-            print "  window.dataLayer = window.dataLayer || [];";
-            print "  function gtag(){dataLayer.push(arguments);}";
-            print "  gtag('js', new Date());";
-            print "  gtag('config', 'UA-119670592-1');";
-            print "</script>";
-        }
-        ?>
-        <?php
-        if (getenv('PINGDOM_RUM') !== false) {
-            print "<script src=\"" . getenv('PINGDOM_RUM') . "\" async></script>";
-        }
-        ?>
+        
         <?php
         if (getenv('SENTRY_CLIENT_DSN') !== false) {
             print "<script src=\"https://cdn.ravenjs.com/3.25.2/raven.min.js\" crossorigin=\"anonymous\"></script>";
@@ -69,59 +54,6 @@ function strip_seps($haystack) {
         $haystack = str_replace($n, "", $haystack);
     }
     return $haystack;
-}
-
-if (WorkbenchConfig::get()->value("checkForLatestVersion") && extension_loaded('curl') && (isset($_GET['autoLogin']) || 'login.php'==basename($_SERVER['PHP_SELF']))) {
-    try {
-        $ch = curl_init();
-        curl_setopt ($ch, CURLOPT_URL, 'https://api.github.com/repos/forceworkbench/forceworkbench/tags');
-        curl_setopt ($ch, CURLOPT_USERAGENT, getWorkbenchUserAgent());
-        curl_setopt($ch, CURLOPT_TIMEOUT, 2);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        $tagsResponse = curl_exec($ch);
-        $info = curl_getinfo($ch);
-        curl_close($ch);
-        if ($tagsResponse === false || $info['http_code'] != 200) {
-            throw new Exception("Could not access GitHub tags");
-        }
-
-        $tags = json_decode($tagsResponse);
-
-        $betaTagNames = array();
-        $gaTagNames = array();
-        foreach ($tags as $tag) {
-            if (preg_match('/^[0-9]+.[0-9]+/',$tag->name) === 0) {
-                continue;
-            } else if (stristr($tag->name, 'beta') ) {
-                $betaTagNames[] = $tag->name;
-        } else {
-                $gaTagNames[] = $tag->name;
-            }
-        }
-        rsort($betaTagNames);
-        rsort($gaTagNames);
-
-        $latestBetaVersion = strip_seps($betaTagNames[0]);
-        $latestGaVersion = strip_seps($gaTagNames[0]);
-        $currentVersion = strip_seps($GLOBALS["WORKBENCH_VERSION"]);
-
-        if (stristr($currentVersion, 'beta') && !stristr($latestBetaVersion, $latestGaVersion)) {
-            $latestChannelVersion = $latestBetaVersion;
-        } else {
-            $latestChannelVersion = $latestGaVersion;
-            }
-
-        if ($latestChannelVersion != $currentVersion) {
-            print "<div style='background-color: #EAE9E4; width: 100%; padding: 2px;'>" .
-                    "<a href='https://github.com/forceworkbench/forceworkbench/tags' target='_blank' " .
-                        "style='font-size: 8pt; font-weight: bold; color: #0046ad;'>" .
-                        "A newer version of Workbench is available for download</a>" .
-                  "</div><br/>";
-        }
-    } catch (Exception $e) {
-        //do nothing
-    }
 }
 ?>
 
