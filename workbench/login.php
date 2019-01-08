@@ -111,7 +111,7 @@ require_once "header.php";
             <?php } ?>
 
             <p>
-                <strong>Genpact Workbench is free to use, but is deployed for internal Genpact employees only.
+                <strong>Genpact Workbench is free to use, but is deployed for internal Genpact employees only.</strong>
             </p>
             <p>
                 Whitelist following IP in your profile before logging in:
