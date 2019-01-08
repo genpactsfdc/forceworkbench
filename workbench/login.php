@@ -115,7 +115,7 @@ require_once "header.php";
                 Deployed for internal use only.
             </p>
             <p>
-                Whitelist this IP <?php echo $_SERVER['SERVER_ADDR'];?>
+                Current whitelist IP <?php echo $_SERVER['SERVER_ADDR'];?>
             </p>
 
             <p>
