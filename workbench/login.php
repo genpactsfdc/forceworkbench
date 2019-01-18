@@ -135,7 +135,6 @@ addFooterScript("<script type='text/javascript'>wbLoginConfig=" . $c->getJsConfi
 addFooterScript("<script type='text/javascript'>WorkbenchLogin.initializeForm(" . json_encode($c->getLoginType()) .");</script>");
 require_once "footer.php";
 ?>
-<?php
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
@@ -203,4 +202,3 @@ require_once "footer.php";
 		initESW('https://service.force.com');
 	}
 </script>
-    ?>
