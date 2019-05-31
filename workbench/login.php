@@ -111,7 +111,7 @@ require_once "header.php";
             <?php } ?>
 
             <p>
-                <strong>Genpact Workbench is deployed for internal Genpact employees only.</strong>
+                <h3>Genpact Workbench is deployed for internal Genpact employees only.</h3>
             </p>
             <p>
                 Whitelist following Dynamic IP in your profile before logging in:
@@ -120,7 +120,7 @@ require_once "header.php";
 		    <?php $externalContent = file_get_contents('http://checkip.dyndns.com/');
 preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
 $externalIp = $m[1];
-		    ?><h2>Whitelist THIS IP : <?php echo $externalIp;?></h2>
+		    ?><h2>WHITELIST THIS IP : <?php echo $externalIp;?></h2>
 		    
             </p>
 
