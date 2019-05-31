@@ -16,7 +16,7 @@ if (WorkbenchContext::isEstablished() && WorkbenchContext::get()->isRequestStart
     printf ("Requested in %01.3f sec<BR/>", $requestProcessingTime);
 }
 
-print "Workbench " . ($GLOBALS["WORKBENCH_VERSION"] != "trunk" ? $GLOBALS["WORKBENCH_VERSION"] : "") . "<br/>\n";
+print "amit.bhardwaj@genpact.com --- Workbench " . ($GLOBALS["WORKBENCH_VERSION"] != "trunk" ? $GLOBALS["WORKBENCH_VERSION"] : "") . "<br/>\n";
 ?></div>
 
 </body>
