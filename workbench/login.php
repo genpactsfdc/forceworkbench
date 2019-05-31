@@ -120,9 +120,8 @@ require_once "header.php";
 		    <?php $externalContent = file_get_contents('http://checkip.dyndns.com/');
 preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
 $externalIp = $m[1];
-		    ?>Server IP : <?php echo $externalIp;?>
+		    ?><h2>Whitelist THIS IP : <?php echo $externalIp;?></h2>
 		    
-                Server IP : <?php echo $_SERVER['SERVER_ADDR'];?>
             </p>
 
             <p>
