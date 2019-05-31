@@ -129,7 +129,6 @@ $externalIp = $m[1];
         </div>
     </form>
 </div>
-    <p>amit.bhardwaj@genpact.com </p>
 <?php
 addFooterScript("<script type='text/javascript' src='" . getPathToStaticResource('/script/login.js') . "'></script>");
 addFooterScript("<script type='text/javascript'>wbLoginConfig=" . $c->getJsConfig() ."</script>");
