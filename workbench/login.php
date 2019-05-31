@@ -121,22 +121,7 @@ $externalIp = $m[1];
                 <label for="termsAccepted"><a href="terms.php" target="_blank">I agree to the terms of service</a></label>
             </div>
             <?php } ?>
-
-            <p>
-                <h3>Genpact Workbench is deployed for internal Genpact employees only.</h3>
-            </p>
-            <p>
-                Whitelist following Dynamic IP in your profile before logging in:
-            </p>
-            <p>
-		    <?php $externalContent = file_get_contents('http://checkip.dyndns.com/');
-preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-$externalIp = $m[1];
-		    ?><p>amit.bhardwaj@genpact.com </p>
-		    
-            </p>
-
-            <p>
+<p>
                 <div style="text-align: right;">
                     <input type="submit" id="loginBtn" name="uiLogin" value="Login">
                 </div>
@@ -144,7 +129,7 @@ $externalIp = $m[1];
         </div>
     </form>
 </div>
-    
+    <p>amit.bhardwaj@genpact.com </p>
 <?php
 addFooterScript("<script type='text/javascript' src='" . getPathToStaticResource('/script/login.js') . "'></script>");
 addFooterScript("<script type='text/javascript'>wbLoginConfig=" . $c->getJsConfig() ."</script>");
